@@ -682,7 +682,9 @@ export default function Home() {
 										<div className="col-12">
 											<div
 												className="alert alert-success contact__msg "
-												role="alert">
+												role="alert"
+												hidden
+											>
 												Your message was sent successfully.
 											</div>
 										</div>

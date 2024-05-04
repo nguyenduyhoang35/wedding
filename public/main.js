@@ -169,42 +169,6 @@
           }
       }
   });
-  // Smooth Scrolling
-  $('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-  // On-page links
-  if (
-    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-    && 
-    location.hostname == this.hostname
-  ) {
-    // Figure out element to scroll to
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    // Does a scroll target exist?
-    if (target.length) {
-      // Only prevent default if animation is actually gonna happen
-      event.preventDefault();
-      $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 1000, function() {
-        // Callback after animation
-        // Must change focus!
-        var $target = $(target);
-        $target.focus();
-        if ($target.is(":focus")) { // Checking if the target was focused
-          return false;
-        } else {
-          $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-          $target.focus(); // Set focus again
-        };
-      });
-    }
-  }
-});
   // Gallery 
   $(window).on("load", function () {
   var e = $(".gallery-filter")
@@ -276,35 +240,35 @@
 }());
 
 // Countdown wedding
-// (function () {
-// const second = 1000,
-//       minute = second * 60,
-//       hour = minute * 60,
-//       day = hour * 24;
-// let birthday = "Dec 15, 2023 00:00:00",
-//     countDown = new Date(birthday).getTime(),
-//     x = setInterval(function() {    
-//       let now = new Date().getTime(),
-//           distance = countDown - now;
+(function () {
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+let birthday = "Dec 15, 2023 00:00:00",
+    countDown = new Date(birthday).getTime(),
+    x = setInterval(function() {    
+      let now = new Date().getTime(),
+          distance = countDown - now;
 
-//       document.getElementById("days").innerText = Math.floor(distance / (day)),
-//         document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-//         document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-//         document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+      document.getElementById("days").innerText = Math.floor(distance / (day)),
+        document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
-//       //do something later when date is reached
-//       if (distance < 0) {
-//         let headline = document.getElementById("headline"),
-//             countdown = document.getElementById("countdown"),
-//             content = document.getElementById("content");
+      //do something later when date is reached
+      if (distance < 0) {
+        let headline = document.getElementById("headline"),
+            countdown = document.getElementById("countdown"),
+            content = document.getElementById("content");
 
-//         (headline|| {}).innerText = "It's our wedding!";
-//         ((countdown || {}).style || {}).display = "none";
-//         ((content|| {}).style || {}).display = "block";
+        (headline|| {}).innerText = "It's our wedding!";
+        ((countdown || {}).style || {}).display = "none";
+        ((content|| {}).style || {}).display = "block";
 
-//         clearInterval(x);
-//       }
-//       //seconds
-//     }, 0)
-// }());
+        clearInterval(x);
+      }
+      //seconds
+    }, 0)
+}());
   
