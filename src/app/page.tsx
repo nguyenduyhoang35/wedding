@@ -1,5 +1,7 @@
 import CoupleLink from "@/components/couplelink";
 import NavBar from "@/components/navbar";
+import { formatDate1, formatDate2, formatDate3 } from "@/lib/utils";
+import { setting } from "@/setting";
 /* eslint-disable @next/next/no-img-element */
 export default function Home() {
 	return (
@@ -21,7 +23,7 @@ export default function Home() {
 						<span>
 							Olivia <small>&</small> Enrico
 						</span>
-						<h6>15.11.2023</h6>
+						<h6>{formatDate2(setting.start)}</h6>
 					</a>
 				</div>
 				{/* <!-- Menu --> */}
@@ -30,9 +32,9 @@ export default function Home() {
 				<div className="footer1">
 					<span className="separator"></span>
 					<p>
-						Olivia & Enrico wedding
+						{setting.human.bride.lastName} & {setting.human.groom.lastName} wedding
 						<br />
-						15 December 2023, New York
+						{formatDate1(setting.start)}, {setting.location.short}
 					</p>
 				</div>
 			</aside>
@@ -64,8 +66,12 @@ export default function Home() {
 						<div className="container">
 							<div className="row">
 								<div className="col-md-12">
-									<h1>Olivia &amp; Enrico</h1>
-									<h5>15 December, 2023 – New York</h5>
+									<h1>
+										{setting.human.bride.lastName} &amp; {setting.human.groom.lastName}
+									</h1>
+									<h5>
+										{formatDate1(setting.start)} – {setting.location.short}
+									</h5>
 								</div>
 							</div>
 							<div className="row">
@@ -96,13 +102,13 @@ export default function Home() {
 									</div>
 									<div className="info valign">
 										<div className="full-width">
-											<h6>
-												Olivia Martin <i className="ti-heart"></i>
+											<h6 className="">
+												{setting.human.bride.lastName} {setting.human.bride.fistName} <i className="ti-heart"></i>
 											</h6>
 											<span>The Bride</span>
 											<p>
-												Olivia fringilla dui at elit finibus viverra thenec a lacus seda themo the miss druane semper
-												non the fermen.
+												{setting.human.bride.lastName} fringilla dui at elit finibus viverra thenec a lacus seda themo
+												the miss druane semper non the fermen.
 											</p>
 											<div className="social">
 												<div className="full-width">
@@ -140,12 +146,12 @@ export default function Home() {
 									<div className="info valign">
 										<div className="full-width">
 											<h6>
-												Enrico Danilo <i className="ti-heart"></i>
+												{setting.human.groom.lastName} {setting.human.groom.fistName} <i className="ti-heart"></i>
 											</h6>
 											<span>The Groom</span>
 											<p>
-												Enrico fringilla dui at elit finibus viverra thenec a lacus seda themo the miss druane semper
-												non the fermen.
+												{setting.human.groom.lastName} fringilla dui at elit finibus viverra thenec a lacus seda themo
+												the miss druane semper non the fermen.
 											</p>
 											<div className="social">
 												<div className="full-width">
@@ -176,7 +182,9 @@ export default function Home() {
 								className="col-md-12 text-center animate-box"
 								data-animate-effect="fadeInUp">
 								<h3 className="oliven-couple-title">Are getting married!</h3>
-								<h4 className="oliven-couple-subtitle">December 15, 2023 — New York, Brooklyn</h4>
+								<h4 className="oliven-couple-subtitle">
+									{formatDate1(setting.start)} — {setting.location.full}
+								</h4>
 							</div>
 						</div>
 					</div>
@@ -234,7 +242,8 @@ export default function Home() {
 										style={{
 											backgroundImage:
 												"url(https://duruthemes.com/demo/html/olivia-enrico/demo4/images/wedding-logo.png",
-										}}></div>
+										}}>
+									</div>
 								</div>
 							</div>
 							<div
@@ -256,7 +265,7 @@ export default function Home() {
 									elit finibus viverra nec a lacus. Nedana themo eros odio semper soe suscipit non. Curabit aliquet orci
 									elit genes tristique.
 								</p>
-								<h4>Dec 5th, 2023, We Said Yes!</h4>
+								<h4>{formatDate3(setting.start)}, We Said Yes!</h4>
 								<p>
 									Luality fringilla duiman at elit finibus viverra nec a lacus themo the druanye sene sollicitudin mi
 									suscipit non sagie the fermen.
@@ -386,7 +395,7 @@ export default function Home() {
 									<i className="ti-heart"></i>
 								</span>
 								<h4>Looking forward to see you!</h4>
-								<h3>15.11.2023</h3>
+								<h3>{formatDate2(setting.start)}</h3>
 							</div>
 						</div>
 					</div>
@@ -599,7 +608,7 @@ export default function Home() {
 					<div className="container">
 						<div className="row">
 							<div className="col-md-12 mb-30">
-								<span className="oliven-title-meta">Questions</span>friends
+								<span className="oliven-title-meta">Questions</span>
 								<h2 className="oliven-title">When & Where</h2>
 							</div>
 						</div>
@@ -683,8 +692,7 @@ export default function Home() {
 											<div
 												className="alert alert-success contact__msg "
 												role="alert"
-												hidden
-											>
+												hidden>
 												Your message was sent successfully.
 											</div>
 										</div>
@@ -832,7 +840,9 @@ export default function Home() {
 										</span>
 									</a>
 								</h2>
-								<p className="copyright">December 15, 2023 – New York, Brooklyn</p>
+								<p className="copyright">
+									{formatDate1(setting.start)} – {setting.location.full}
+								</p>
 							</div>
 						</div>
 					</div>
